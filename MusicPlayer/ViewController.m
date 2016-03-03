@@ -38,7 +38,6 @@
     for (NSString *path in [contents filteredArrayUsingPredicate:predicate]) {
         // Enumerate each .png file in directory
         [tableArray addObject:path];
-//        [self getAudioDetails:(NSURL*)path];
     }
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -47,17 +46,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - 
-
--(void)getAudioDetails:(NSURL*)soundUrl
-{
-    AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:soundUrl];
-    NSArray *metadataList = [playerItem.asset commonMetadata];
-    for (AVMetadataItem *metaItem in metadataList) {
-        NSLog(@"%@",[metaItem commonKey]);
-    }
 }
 
 
@@ -120,9 +108,5 @@
     vc.index = (int)path.row;
     vc.audioAry = tableArray;
 }
-
-
-
-
 
 @end
